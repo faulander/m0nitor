@@ -52,7 +52,7 @@ class Sonarr:
         """returns the percentage of free disk space for all attached drives
         
         Returns:
-            [list] -- [drive:percentage]
+            [list] -- [path:percentage]
         """
         lstDiskSpace = []
         raw = self._getRawData('/diskspace')
@@ -60,7 +60,6 @@ class Sonarr:
             tmpPath = r['path']
             tmpFree = str(round((int(r['freeSpace']) / int(r['totalSpace'])) * 100))
             lstDiskSpace.append(tmpPath + ":" + tmpFree + "%")
-            #logger.debug (tmpFree)
         return lstDiskSpace
 
 

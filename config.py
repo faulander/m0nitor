@@ -12,8 +12,12 @@ def load_config(config_file):
         data = dict(
             sonarr = dict(
                 URL = '',
-                API_KEY = ''
-            )
+                API_KEY = '',
+            ),
+            elk = dict(
+                URL = '',
+                PORT = '',
+            )   
         )
         logger.error(exc)
         logger.info("Creating empty configuration file.")
