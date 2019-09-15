@@ -8,12 +8,12 @@
       </tr>
     </thead>
     <tbody>
-{% for key, value in data.items() %}
-  <tr>
-    <th scope="row">{{ key }}</th>
-    <td>{{ value }}</td>
-  </tr>
-  {% endfor %}
-</tbody>
-</table>
+{% for key1, value in data.items() %}
+    <p> {{ key1 }} </p>
+    <ul>
+    {% for key2 in value %}
+        <li> {{key2}} </li>
+    {% endfor %}
+    </ul>
+{% endfor %}
 {% endblock %}
