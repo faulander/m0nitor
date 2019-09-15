@@ -15,8 +15,9 @@ def load_config(config_file):
                 API_KEY = '',
             ),
             elk = dict(
-                URL = '',
-                PORT = '',
+                URL = '#Enter the IP Adress of your Elasticsearch instance, eg. 192.168.100.1',
+                PORT = '#Enter the port where your Elasticsearch instance listens, eg. 9200',
+                SERVICES = '# Enter the services which should be delivered',
             )   
         )
         logger.error(exc)
