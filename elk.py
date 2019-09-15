@@ -1,7 +1,7 @@
 from loguru import logger
 from elasticsearch import Elasticsearch
 from elasticsearch_dsl import Search
-
+from datetime import datetime
 
 class ELK:
     "Wrapper Class for Logs in Elasticsearch"
@@ -25,10 +25,12 @@ class ELK:
         SERVICE = "/" + SERVICE
         es = self._connect()
         s = Search(using=es, index="logstash") \
-            .filter("match_phrase", docker__name=SERVICE)
+            .filter("match_phrase", docker__name=SERVICE) \
+            .filter('range', **{'@timestamp':{'gte': 'now-5m' , 'lt': 'now'}})
         response = s.execute()
+        logger.debug(response)
         for hit in response:
-            #logger.debug("{}: {}", hit.docker.name, hit.message)
+            logger.debug("{}: {}", hit.docker.name, hit.message)
             logs.append(hit.message)
         return logs
 
