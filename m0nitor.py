@@ -6,13 +6,6 @@ from sonarr import Sonarr
 from elk import ELK
 from flask import Flask, render_template
 
-def pretty(d, indent=:
-   for key, value in d.items():
-      print('\t' * indent + str(key))
-      if isinstance(value, dict):
-         pretty(value, indent+1)
-      else:
-         print('\t' * (indent+1) + str(value))
 
 
 config = load_config("m0nitor.yml")
@@ -32,7 +25,7 @@ content['sonarr'] = s.getLastEpisodes()
 content['diskspace'] = s.getDiskSpace()
 #logger.debug(content)
 
-pretty(content)
+#pretty(content)
 
 app = Flask(__name__)
 

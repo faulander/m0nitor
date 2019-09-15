@@ -1,15 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-<table class="table table-striped" >
-    <thead>
-      <tr>
-        <th scope="col">id</th>
-        <th scope="col">name</th>
-      </tr>
-    </thead>
-    <tbody>
 {% for key1, value in data.items() %}
-    <p> {{ key1 }} </p>
+    <h2> {{ key1 }} </h2>
     <ul>
     {% for key2 in value %}
         <li> {{key2}} </li>
